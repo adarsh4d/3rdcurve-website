@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #a41a1a;
+  --color-primary-dark: #460d15;
+
+  --font-sans: "Inter", sans-serif;
+  --font-garnett: "Garnett", sans-serif;
+
+  --shadow-pill:
+    0px 1px 2px 0px #d4d4d41a, 0px 4px 4px 0px #d4d4d417, 0px 9px 5px 0px #d4d4d40d,
+    0px 15px 6px 0px #d4d4d403, 0px 24px 7px 0px #d4d4d400;
+}
+
+@utility place-center {
+  justify-content: center;
+  align-items: center;
+}
