@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   css: ["./app/assets/css/main.css"],
   modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxt/image"],
   vite: {
+    // @ts-expect-error - tailwindcss is a valid plugin
     plugins: [tailwindcss()],
   },
   icon: {
