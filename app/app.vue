@@ -9,33 +9,11 @@
           class="flex grow place-center gap-6.25 text-[15px] font-medium whitespace-nowrap text-[#262626] max-md:hidden"
         >
           <a
-            href="#services"
+            v-for="link in links"
+            :key="link.href"
+            :href="link.href"
             class="transition-colors duration-300 hover:text-primary hover:underline"
-            >Services</a
-          >
-          <a
-            href="#approach"
-            class="transition-colors duration-300 hover:text-primary hover:underline"
-            >Approach</a
-          >
-          <a
-            href="#brand-strategy"
-            class="transition-colors duration-300 hover:text-primary hover:underline"
-            >Brand Strategy</a
-          >
-          <a
-            href="#experience"
-            class="transition-colors duration-300 hover:text-primary hover:underline"
-            >Experience</a
-          >
-
-          <a href="#about" class="transition-colors duration-300 hover:text-primary hover:underline"
-            >About</a
-          >
-          <a
-            href="#contact"
-            class="transition-colors duration-300 hover:text-primary hover:underline"
-            >Contact</a
+            >{{ link.label }}</a
           >
         </div>
         <div class="hidden grow max-md:block" />
@@ -66,13 +44,15 @@
           <Icon name="solar:close-circle-linear" class="size-6 text-[#484848]" />
         </button>
       </div>
-      <a href="#services" class="flex items-center justify-between border-b border-[#eaeaea] p-3">
-        Services
-        <Icon name="solar:arrow-right-linear" class="size-4" />
-      </a>
-      <a href="#approach" class="flex items-center justify-between border-b border-[#eaeaea] p-3">
-        Approach
-        <Icon name="solar:arrow-right-linear" class="size-4" />
+      <a
+        v-for="link in links"
+        :key="link.href"
+        :href="link.href"
+        class="flex items-center justify-between border-b border-[#eaeaea] py-3"
+        @click="isMenuOpen = false"
+      >
+        {{ link.label }}
+        <Icon name="solar:arrow-right-linear" class="size-4 opacity-50" />
       </a>
     </div>
 
@@ -565,12 +545,9 @@
         <div>
           <p class="relative text-[18px] font-semibold text-primary">Company</p>
           <div class="mt-3 grid gap-4 text-[15px] text-white/70">
-            <a href="#services" class="hover:text-white">Services</a>
-            <a href="#approach" class="hover:text-white">Approach</a>
-            <a href="#brand-strategy" class="hover:text-white">Brand Strategy</a>
-            <a href="#experience" class="hover:text-white">Experience</a>
-            <a href="#about" class="hover:text-white">About</a>
-            <a href="#contact" class="hover:text-white">Contact</a>
+            <a v-for="link in links" :key="link.href" :href="link.href" class="hover:text-white">{{
+              link.label
+            }}</a>
           </div>
         </div>
         <div class="relative flex flex-col content-stretch items-start justify-center gap-[25px]">
@@ -595,4 +572,31 @@
 
 <script setup>
 const isMenuOpen = ref(false);
+
+const links = [
+  {
+    label: "Services",
+    href: "#services",
+  },
+  {
+    label: "Approach",
+    href: "#approach",
+  },
+  {
+    label: "Brand Strategy",
+    href: "#brand-strategy",
+  },
+  {
+    label: "Experience",
+    href: "#experience",
+  },
+  {
+    label: "About",
+    href: "#about",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+  },
+];
 </script>
